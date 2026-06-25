@@ -1,4 +1,4 @@
-class User:
+class Usuario:
     def __init__(self, nombre, apellido, dni, correo):
         self._nombre = nombre
         self._apellido = apellido
@@ -14,7 +14,7 @@ class User:
         )
 
 
-class Socio(User):
+class Socio(Usuario):
     def __init__(self, nombre, apellido, dni, correo, nro_socio, fecha_alta):
         super().__init__(nombre, apellido, dni, correo)
         self._nro_socio = nro_socio
