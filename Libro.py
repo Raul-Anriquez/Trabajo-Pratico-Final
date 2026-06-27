@@ -7,9 +7,5 @@ class Libro:
         self.cantidad_paginas = cantidad_paginas
     
     def mostrar_datos(self):
-        return (f"Titulo:{self.titulo}"
-                f"Autor:{self.autor}"
-                f"ISBN:{self.ISBN}"
-                f"Fecha de publicacion:{self.fecha_publicacion}"
-                f"Cantidad de paginas:{self.cantidad_paginas}")
+        return f"Titulo:{self.titulo}", f"Autor:{self.autor}", f"ISBN:{self.ISBN}", f"Fecha de publicacion:{self.fecha_publicacion}", f"Cantidad de paginas:{self.cantidad_paginas}"
     
