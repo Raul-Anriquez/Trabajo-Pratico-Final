@@ -12,7 +12,12 @@ class Prestamo:
         return "Devolución registrada correctamente."
     
     def mostrar_datos(self):
-        return  f"Usuario: {self.usuario}, Libro: {self.libro.titulo}, Fecha de préstamo: {self.fecha_prestamo}, Fecha de devolución: {self.fecha_devolucion if self.fecha_devolucion else 'No se ha devuelto aún'}"
-    
+        return (
+            f"Usuario: {self.usuario._nombre} {self.usuario._apellido}, "
+            f"Libro: {self.libro.titulo}, "
+            f"Fecha de préstamo: {self.fecha_prestamo}, "
+            f"Fecha de devolución: {self.fecha_devolucion if self.fecha_devolucion else 'No se ha devuelto aún'}"
+        )
+
     def esta_activo(self):
         return self.fecha_devolucion is None
