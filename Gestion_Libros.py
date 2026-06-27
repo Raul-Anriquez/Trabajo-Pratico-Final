@@ -1,4 +1,4 @@
-class Gestionlibros:
+class GestionLibros:
     def __init__(self):
         self.libros = []
 
@@ -25,4 +25,5 @@ class Gestionlibros:
             return "El libro no esta en la lista."
 
     def listar_libros(self):
-        return self.libros       
+        for libro in self.libros:
+            print(libro.mostrar_datos())
