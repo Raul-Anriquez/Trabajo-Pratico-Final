@@ -1,3 +1,5 @@
+from decorador import registrar_operacion
+
 class GestionLibros:
     def __init__(self):
         self.libros = []
