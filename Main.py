@@ -51,14 +51,95 @@ while continuar_menu:
         elif opcion_libro == "4":
             biblioteca.listar_libros()        
     
-    
-    
     elif opcion == "2":
         print("Gestionar usuarios")
+        print("1. Agregar usuario")
+        print("2. Modificar usuario")
+        print("3. Eliminar usuario")
+        print("4. Listar usuarios")
+        opcion_usuario = input("Elija una opción: ")
+        if opcion_usuario == "1":
+            nombre = input("Ingrese el nombre del usuario: ")
+            apellido = input("Ingrese el apellido del usuario: ")
+            dni = input("Ingrese el DNI del usuario: ")
+            correo = input("Ingrese el correo del usuario: ")
+            usuario = Usuario(nombre, apellido, dni)
+            biblioteca.agregar_usuario(usuario)
+            print("El usuario fue agregado.")
+
+        elif opcion_usuario == "2":
+            dni = input("Ingrese el DNI del usuario que quiera modificar: ")
+            usuario = biblioteca.buscar_usuario(dni)
+            if usuario:
+                nuevo_nombre = input("Ingrese el nuevo nombre del usuario: ")
+                nuevo_apellido = input("Ingrese el nuevo apellido del usuario: ")
+                nuevo_correo = input("Ingrese el nuevo correo del usuario: ")
+                biblioteca.modificar_usuario(dni, nuevo_nombre, nuevo_apellido)
+                print("El usuario fue modificado.")
+            else:
+                print("El Usuario no se ha encontrado.")   
+         
+        elif opcion_usuario == "3":
+            dni = input("Ingrese el DNI del usuario que quiera eliminar: ")
+            usuario = biblioteca.buscar_usuario(dni)
+            if usuario:
+                biblioteca.eliminar_usuario(dni)
+                print("El usuario fue eliminado.")
+            else:
+                print("El Usuario no se ha encontrado.")        
+        
+        elif opcion_usuario == "4":
+            biblioteca.listar_usuarios()
+
     elif opcion == "3":
         print("Gestionar préstamos")
-    elif opcion == "4":
-        print("Saliendo del programa...")
-        continuar_menu = False
-            
+        print("1. Agregar préstamo")
+        print("2. Modificar préstamo")
+        print("3. Eliminar préstamo")
+        print("4. Listar préstamos")
+        opcion_prestamo = input("Elija una opción: ")
+        if opcion_prestamo == "1":
+            dni = input("Ingrese el DNI del usuario: ")
+            usuario = biblioteca.buscar_usuario(dni)
+            if usuario:
+                isbn = input("Ingrese el ISBN del libro: ")
+                libro = biblioteca.buscar_libro(isbn)
+                if libro:
+                    prestamo = Prestamo(usuario, libro,fecha_prestamo=None, fecha_devolucion=None)
+                    biblioteca.agregar_prestamo(prestamo)
+                    print("El préstamo fue agregado.")
+                else:
+                    print("El libro no se ha encontrado.")
+            else:
+                print("El usuario no se ha encontrado.")
+    
+        elif opcion_prestamo == "2":
+            dni = input("Ingrese el DNI del usuario: ")
+            usuario = biblioteca.buscar_usuario(dni)
+            if usuario:
+                isbn = input("Ingrese el ISBN del libro: ")
+                libro = biblioteca.buscar_libro(isbn)
+                if libro:
+                    prestamo = biblioteca.buscar_prestamo(usuario, libro)
 
+
+        elif opcion_prestamo == "3":
+            dni = input("Ingrese el DNI del usuario: ")
+            usuario = biblioteca.buscar_usuario(dni)
+            if usuario:
+                isbn = input("Ingrese el ISBN del libro: ")
+                libro = biblioteca.buscar_libro(isbn)
+                if libro:
+                    prestamo = biblioteca.buscar_prestamo(usuario, libro)
+                    if prestamo:
+                        biblioteca.eliminar_prestamo(prestamo)
+                        print("El préstamo fue eliminado.")
+                    else:
+                        print("El préstamo no se ha encontrado.")
+        
+        elif opcion_prestamo == "4":
+            biblioteca.listar_prestamos()
+    
+    elif opcion == "4":
+        continuar_menu = False
+        print("usted ha salido del programa.")

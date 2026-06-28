@@ -22,5 +22,9 @@ class GestionPrestamos:
     def listar_prestamos(self):
         for prestamo in self.prestamos:
             print(prestamo.mostrar_datos())
-    
+    def buscar_prestamo(self, libro):
+        for prestamo in self.prestamos:
+            if prestamo.libro == libro:
+                return prestamo
+        return None
     

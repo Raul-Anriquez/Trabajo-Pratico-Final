@@ -1,15 +1,16 @@
+from datetime import date
 class Prestamo:
-    def __init__(self, usuario, libro, fecha_prestamo):
+    def __init__(self, usuario, libro ):
         self.usuario = usuario
         self.libro = libro
-        self.fecha_prestamo = fecha_prestamo
+        self.fecha_prestamo = date.today()
         self.fecha_devolucion = None
 
-    def registrar_devolucion(self, fecha_devolucion):
+    def registrar_devolucion(self):
         if self.fecha_devolucion is not None:
             return "El libro ya ha sido devuelto."
-        self.fecha_devolucion = fecha_devolucion
-        return "Devolución registrada correctamente."
+        self.fecha_devolucion = date.today()
+        return " La devolución registrada correctamente."
     
     def mostrar_datos(self):
         return (
