@@ -1,3 +1,5 @@
+from decorador import registrar_operacion
+
 class GestionUsuarios:
     def __init__(self):
         self.usuarios = []
