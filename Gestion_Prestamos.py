@@ -1,4 +1,4 @@
-from decorador import registrar_operacion
+from decorador import registrar_operacio
 
 class GestionPrestamos:
     def __init__(self):
