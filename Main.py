@@ -24,7 +24,7 @@ while continuar_menu:
             titulo = input("Ingrese el título del libro: ")
             autor = input("Ingrese el autor del libro: ")
             isbn = input("Ingrese el ISBN del libro: ")
-            libro = Libro(titulo, autor, isbn)
+            libro = Libro(titulo, autor, isbn, fecha_publicacion=None, cantidad_paginas=None)
             biblioteca.agregar_libro(libro)
             print("El Libro fue agregado.")
 
@@ -34,6 +34,8 @@ while continuar_menu:
             if libro:
                 nuevo_titulo = input("Ingrese el nuevo título del libro: ")
                 nuevo_autor = input("Ingrese el nuevo autor del libro: ")
+                nueva_fecha_publicacion = input("Ingrese la nueva fecha de publicación del libro: ")
+                nuevo_cantidad_paginas = input("Ingrese la nueva cantidad de páginas del libro: ")
                 biblioteca.modificar_libro(isbn, nuevo_titulo, nuevo_autor)
                 print("El libro fue modificado.")
             else:
@@ -63,7 +65,7 @@ while continuar_menu:
             apellido = input("Ingrese el apellido del usuario: ")
             dni = input("Ingrese el DNI del usuario: ")
             correo = input("Ingrese el correo del usuario: ")
-            usuario = Usuario(nombre, apellido, dni)
+            usuario = Usuario(nombre, apellido, dni,correo)
             biblioteca.agregar_usuario(usuario)
             print("El usuario fue agregado.")
 
