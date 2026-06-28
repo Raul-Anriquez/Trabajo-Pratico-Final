@@ -1,5 +1,5 @@
 class Prestamo:
-    def __init__(self, usuario, libro, fecha_prestamo, ):
+    def __init__(self, usuario, libro, fecha_prestamo):
         self.usuario = usuario
         self.libro = libro
         self.fecha_prestamo = fecha_prestamo
@@ -19,5 +19,5 @@ class Prestamo:
             f"Fecha de devolución: {self.fecha_devolucion if self.fecha_devolucion else 'No se ha devuelto aún'}"
         )
 
-    def prestamo_activo(self):
+    def esta_activo(self):
         return self.fecha_devolucion is None

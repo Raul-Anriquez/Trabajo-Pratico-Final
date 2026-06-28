@@ -23,6 +23,11 @@ class GestionLibros:
             return "El libro fue modificado correctamente."
         else:
             return "El libro no esta en la lista."
+    def buscar_libro(self, ISBN):
+        for libro in self.libros:
+            if libro.ISBN == ISBN:
+                return libro
+        return None
 
     def listar_libros(self):
         for libro in self.libros:
