@@ -4,6 +4,7 @@ import time
 from typing import Any, Callable
 
 #LOG DE AUDITORIA
+
 _log_auditoria = []
 
 def _serializar(obj):
