@@ -18,7 +18,7 @@ Entre sus principales funcionalidades se encuentran:
 * Hernan Sandroni
 * Raul Anriquez
 * Marcos Manduca
-* Nicolas
+* Nicolas Omar Alvarez Pacheco
 
 ## Tecnologías utilizadas
 
