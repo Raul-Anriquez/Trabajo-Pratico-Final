@@ -68,6 +68,13 @@ La aplicación se ejecuta en consola y permite acceder a las diferentes funciona
 * Biblioteca (clase principal del sistema)
 * Implementación de patrones y conceptos avanzados de POO
 
+## Patrón de diseño utilizado
+
+Se implementó el patrón **Singleton** en la clase `Biblioteca`.
+
+**Justificación:** Una biblioteca es un sistema centralizado que debe mantener un único estado consistente durante toda la ejecución. Si existieran múltiples instancias de `Biblioteca`, cada una tendría su propia lista de libros, usuarios y préstamos, lo que generaría inconsistencias en los datos. El patrón Singleton garantiza que solo exista una instancia de `Biblioteca` en todo momento, asegurando que todas las operaciones del sistema actúen sobre el mismo conjunto de datos.
+
 ## Diagrama UML
 
 El diagrama UML del sistema se encuentra incluido en este repositorio.
+
