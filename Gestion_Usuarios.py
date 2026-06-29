@@ -31,7 +31,7 @@ class GestionUsuarios:
     def buscar_usuario(self, dni):
         for usuario in self.usuarios:
             if usuario._dni == dni:
-                return usuario.mostrar_datos()
+                return usuario
         return "El usuario no fue encontrado."
     
     def listar_usuarios(self):

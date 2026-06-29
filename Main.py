@@ -72,6 +72,9 @@ while continuar_menu:
             apellido = input("Ingrese el apellido del usuario: ")
             dni = int(input("Ingrese el DNI del usuario: "))
             correo = input("Ingrese el correo del usuario: ")
+            while "@" not in correo:
+             print("Correo inválido.")
+             correo = input("Ingrese un correo válido: ")
             usuario = Usuario(nombre, apellido, dni,correo)
             biblioteca.agregar_usuario(usuario)
             print("El usuario fue agregado.")
@@ -83,7 +86,10 @@ while continuar_menu:
                 nuevo_nombre = input("Ingrese el nuevo nombre del usuario: ")
                 nuevo_apellido = input("Ingrese el nuevo apellido del usuario: ")
                 nuevo_dni = int(input("Ingrese el nuevo DNI: "))
-                nuevo_correo = input("Ingrese el nuevo correo: ")
+                nuevo_correo = input("Ingrese el correo del usuario: ")
+                while "@" not in nuevo_correo:
+                 print("Correo inválido.")
+                 nuevo_correo = input("Ingrese un correo válido: ")
                 print(biblioteca.modificar_usuario(usuario,nuevo_nombre,nuevo_apellido,nuevo_dni,nuevo_correo))
             else:
              print("El usuario no se ha encontrado.")
@@ -117,7 +123,7 @@ while continuar_menu:
                 isbn = int(input("Ingrese el ISBN del libro: "))
                 libro = biblioteca.buscar_libro(isbn)
                 if libro:
-                    prestamo = Prestamo(usuario, libro,fecha_prestamo=None, fecha_devolucion=None)
+                    prestamo = Prestamo(usuario, libro)
                     biblioteca.registrar_prestamo(prestamo)
                     print("El préstamo fue agregado.")
                 else:
@@ -126,22 +132,26 @@ while continuar_menu:
                 print("El usuario no se ha encontrado.")
     
         elif opcion_prestamo == "2":
-            dni = int(input("Ingrese el DNI del usuario: "))
-            usuario = biblioteca.buscar_usuario(dni)
-            if usuario:
-                isbn = int(input("Ingrese el ISBN del libro: "))
-                libro = biblioteca.buscar_libro(isbn)
-                
-                if libro:
-                    prestamo = biblioteca.buscar_prestamo(libro)
-                    
-                    if prestamo:
-                        nueva_fecha_devolucion = input("Ingrese la nueva fecha de devolución : ")
-                        print(biblioteca.modificar_prestamo(prestamo,nueva_fecha_devolucion))
-                    else:
-                        print("No se a encontrado el prestamo")
-                    
+         dni = int(input("Ingrese el DNI del usuario: "))
+         usuario = biblioteca.buscar_usuario(dni)
 
+         if usuario:
+          isbn = int(input("Ingrese el ISBN del libro: "))
+          libro = biblioteca.buscar_libro(isbn)
+          
+          if libro:
+            prestamo = biblioteca.buscar_prestamo(libro)
+         
+
+            if prestamo:
+                nueva_fecha_devolucion = input("Ingrese la nueva fecha de devolución: ")
+                print(biblioteca.modificar_prestamo(prestamo, nueva_fecha_devolucion))
+            else:
+              print("No se ha encontrado el préstamo.")
+          else:
+            print("El libro no se ha encontrado.")              
+         else:
+                print("No se ha encontrado el usuario.")
         elif opcion_prestamo == "3":
             dni = int(input("Ingrese el DNI del usuario: "))
             usuario = biblioteca.buscar_usuario(dni)
@@ -155,10 +165,15 @@ while continuar_menu:
                         print("El préstamo fue eliminado.")
                     else:
                         print("El préstamo no se ha encontrado.")
+                else:
+                    print("El libro no ha sido encontrado")
+
+            else:
+                print("El usuario no se ha encontrado")
         
         elif opcion_prestamo == "4":
-            biblioteca.listar_prestamos()
             print("Estos son los préstamos que se encuentran en la biblioteca.")
+            biblioteca.listar_prestamos()
             if not biblioteca.gestion_prestamos.prestamos:
                 print("No hay préstamos registrados.")
     elif opcion == "4":

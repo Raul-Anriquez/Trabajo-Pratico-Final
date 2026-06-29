@@ -1,6 +1,6 @@
 from datetime import date
 class Prestamo:
-    def __init__(self, usuario, libro ):
+    def __init__(self, usuario, libro, ):
         self.usuario = usuario
         self.libro = libro
         self.fecha_prestamo = date.today()
