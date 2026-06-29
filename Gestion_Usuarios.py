@@ -35,5 +35,5 @@ class GestionUsuarios:
         return "El usuario no fue encontrado."
     
     def listar_usuarios(self):
-         return [usuario.mostrar_datos() for usuario in self.usuarios]
-    
+        for usuario in self.usuarios:
+            print(usuario.mostrar_datos())
