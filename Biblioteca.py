@@ -50,6 +50,9 @@ class Biblioteca:
     def registrar_prestamo(self, prestamo):
         return self.gestion_prestamos.registrar_prestamo(prestamo)
     
+    def modificar_prestamo(self, prestamo, nueva_fecha_devolucion):
+     return self.gestion_prestamos.modificar_prestamo(prestamo, nueva_fecha_devolucion)
+
     
     def eliminar_prestamo(self, prestamo):
         return self.gestion_prestamos.eliminar_prestamo(prestamo)
