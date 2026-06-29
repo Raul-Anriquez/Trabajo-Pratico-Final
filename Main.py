@@ -25,7 +25,7 @@ while continuar_menu:
             titulo = input("Ingrese el título del libro: ")
             autor = input("Ingrese el autor del libro: ")
             isbn = int(input("Ingrese el ISBN del libro: "))
-            fecha_publicacion = int(input("Ingrese la fecha de publicación del libro: "))
+            fecha_publicacion = (input("Ingrese la fecha de publicación del libro: "))
             cantidad_paginas = int(input("Ingrese la cantidad de páginas del libro: "))
             libro = Libro(titulo, autor, isbn, fecha_publicacion, cantidad_paginas)
             biblioteca.agregar_libro(libro)
@@ -37,7 +37,7 @@ while continuar_menu:
             if libro:
                 nuevo_titulo = input("Ingrese el nuevo título del libro: ")
                 nuevo_autor = input("Ingrese el nuevo autor del libro: ")
-                nueva_fecha_publicacion = int(input("Ingrese la nueva fecha de publicación del libro: "))
+                nueva_fecha_publicacion = (input("Ingrese la nueva fecha de publicación del libro: "))
                 nuevo_cantidad_paginas = int(input("Ingrese la nueva cantidad de páginas del libro: "))
                 nuevo_ISBN = int(input("Ingrese el nuevo ISBN del libro: "))
                 print(biblioteca.modificar_libro(libro,nuevo_titulo,nuevo_autor,nueva_fecha_publicacion,nuevo_cantidad_paginas,nuevo_ISBN))
@@ -55,8 +55,8 @@ while continuar_menu:
                 print("El Libro no se ha encontrado.")        
         
         elif opcion_libro == "4":
-            biblioteca.listar_libros()
             print("Estos son los libros que se encuentran en la biblioteca.")
+            biblioteca.listar_libros()
             if not biblioteca.gestion_libros.libros:
              print("No hay libros registrados.")
     
@@ -104,8 +104,8 @@ while continuar_menu:
                 print("El Usuario no se ha encontrado.")        
         
         elif opcion_usuario == "4":
-            biblioteca.listar_usuarios()
             print("Estos son los usuarios que se encuentran en la biblioteca.")
+            biblioteca.listar_usuarios()
             if not biblioteca.gestion_usuarios.usuarios:
                 print("No hay usuarios registrados.")
 

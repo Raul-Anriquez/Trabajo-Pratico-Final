@@ -1,5 +1,6 @@
+from Metaclase import MetaEntidad
 from datetime import date
-class Prestamo:
+class Prestamo(metaclass=MetaEntidad):
     def __init__(self, usuario, libro, ):
         self.usuario = usuario
         self.libro = libro

@@ -3,18 +3,21 @@ from Decorador import registrar_operacion
 class GestionLibros:
     def __init__(self):
         self.libros = []
-
+    
+    @registrar_operacion
     def agregar_libro(self, libro):
         self.libros.append(libro)
         return "el libro fue agregado correctamente."
-
+    
+    @registrar_operacion
     def eliminar_libro(self, libro):
         if libro in self.libros:
             self.libros.remove(libro)
             return "El libro fue eliminado correctamente."
         else:
               return "El libro no esta en la lista."
- 
+    
+    @registrar_operacion
     def modificar_libro(self, libro, nuevo_titulo, nuevo_autor, nueva_fecha_publicacion, nuevo_cantidad_paginas, nuevo_ISBN):
         if libro in self.libros:
             libro.titulo = nuevo_titulo
@@ -25,12 +28,15 @@ class GestionLibros:
             return "El libro fue modificado correctamente."
         else:
             return "El libro no esta en la lista."
+    
+    @registrar_operacion
     def buscar_libro(self, ISBN):
         for libro in self.libros:
             if libro.ISBN == ISBN:
                 return libro
         return None
-
+    
+    @registrar_operacion
     def listar_libros(self):
         for libro in self.libros:
             print(libro.mostrar_datos())

@@ -4,13 +4,15 @@ class GestionUsuarios:
     def __init__(self):
         self.usuarios = []
     
+    @registrar_operacion
     def agregar_usuario(self, usuario):
         if usuario not in self.usuarios:
             self.usuarios.append(usuario)
             return "El usuario fue agregado correctamente."
         else:
             return "El usuario ya existe en la lista."
-
+    
+    @registrar_operacion
     def eliminar_usuario(self, usuario):
         if usuario in self.usuarios:
             self.usuarios.remove(usuario)
@@ -18,6 +20,7 @@ class GestionUsuarios:
         else:
             return "El usuario no esta en la lista."
     
+    @registrar_operacion
     def modificar_usuario(self, usuario, nuevo_nombre, nuevo_apellido, nuevo_dni, nuevo_correo):
         if usuario in self.usuarios:
             usuario._nombre = nuevo_nombre
@@ -28,12 +31,14 @@ class GestionUsuarios:
         else:
             return "El usuario no esta en la lista."
     
+    @registrar_operacion
     def buscar_usuario(self, dni):
         for usuario in self.usuarios:
             if usuario._dni == dni:
                 return usuario
         return "El usuario no fue encontrado."
     
+    @registrar_operacion
     def listar_usuarios(self):
         for usuario in self.usuarios:
             print(usuario.mostrar_datos())

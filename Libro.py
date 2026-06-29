@@ -1,4 +1,6 @@
-class Libro:
+from Metaclase import MetaEntidad
+
+class Libro(metaclass=MetaEntidad):
     def __init__ (self, titulo, autor, ISBN, fecha_publicacion, cantidad_paginas):
         self.titulo = titulo
         self.autor = autor

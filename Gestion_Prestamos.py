@@ -3,7 +3,8 @@ from Decorador import registrar_operacion
 class GestionPrestamos:
     def __init__(self):
         self.prestamos = []
-
+    
+    @registrar_operacion
     def registrar_prestamo(self, prestamo):
         for prestamo_activo in self.prestamos:
           if prestamo_activo.libro == prestamo.libro and prestamo_activo.esta_activo():
@@ -12,6 +13,7 @@ class GestionPrestamos:
         self.prestamos.append(prestamo)
         return "El préstamo fue registrado correctamente."
     
+    @registrar_operacion
     def modificar_prestamo(self,prestamo,nueva_fecha_devolucion):
         if prestamo in self.prestamos:
             prestamo.fecha_devolucion = nueva_fecha_devolucion
@@ -19,7 +21,7 @@ class GestionPrestamos:
         else:
             return " El prestamo no se pudo encontrar"
         
-
+    @registrar_operacion
     def eliminar_prestamo(self, prestamo):
         if prestamo in self.prestamos:
             self.prestamos.remove(prestamo)
@@ -31,6 +33,7 @@ class GestionPrestamos:
         for prestamo in self.prestamos:
             print(prestamo.mostrar_datos())
     
+    @registrar_operacion
     def buscar_prestamo(self, libro):
         for prestamo in self.prestamos:
             if prestamo.libro == libro:

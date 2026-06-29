@@ -1,4 +1,5 @@
-class Usuario:
+from Metaclase import MetaEntidad
+class Usuario(metaclass=MetaEntidad):
     def __init__(self, nombre, apellido, dni, correo):
         self._nombre = nombre
         self._apellido = apellido
